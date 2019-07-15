@@ -12,12 +12,9 @@
       <button type="button" class="btn btn-primary"
         (click)="onDisplayDetailsClick()">Display Details</button>
       <p *ngIf="displayDetails">Secret Password = tuna</p>
-      <div *ngFor="let item of clicksLog; let i = index">         
-          <span *ngIf="i >= 4; else noBackgroundLog"
-            [ngStyle]="{backgroundColor: 'blue'}"
-            [ngClass]="{highlightLog: true}">{{ i }}. {{ item }}</span> 
-          <ng-template #noBackgroundLog>{{ i }}. {{ item }}</ng-template>
-      </div>
+      <div *ngFor="let item of clicksLog; let i = index"       
+            [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+            [ngClass]="{highlightLog: i >= 4}">{{ i }}. {{ item }}</div>
     </div>
   </div>
 </div>
